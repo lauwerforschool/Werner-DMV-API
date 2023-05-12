@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Werner_DMV_API;
 
 namespace Werner_DMV_API.Models
 {
