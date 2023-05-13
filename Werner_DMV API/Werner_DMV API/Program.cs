@@ -18,7 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-/*
+
 var key = "FinalTest12345678";
 builder.Services.AddAuthentication(x =>
 {
@@ -38,9 +38,9 @@ builder.Services.AddAuthentication(x =>
 });
 
 builder.Services.AddSingleton<JWTAuthenticationManager>(new JWTAuthenticationManager(key));
-*/
 
 
+/*
 builder.Services.AddDbContext<Werner_DMV_API.Models.DMV_APIContext>(
     options =>
     {
@@ -50,7 +50,7 @@ builder.Services.AddDbContext<Werner_DMV_API.Models.DMV_APIContext>(
 builder.Services.AddMvc(option => option.EnableEndpointRouting = false)
     .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
-
+*/
 
 
 var app = builder.Build();
