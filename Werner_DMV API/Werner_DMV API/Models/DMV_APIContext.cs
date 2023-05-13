@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Werner_DMV_API;
 
 namespace Werner_DMV_API.Models
 {
@@ -53,7 +52,7 @@ namespace Werner_DMV_API.Models
                         r => r.HasOne<DMV>().WithMany().HasForeignKey("DMVID").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK__LicenseIs__DMVID__412EB0B6"),
                         j =>
                         {
-                            j.HasKey("DMVID", "LicenseID").HasName("PK__LicenseI__03AEDF503F16941C");
+                            j.HasKey("DMVID", "LicenseID").HasName("PK__LicenseI__03AEDF504A4BCEF9");
 
                             j.ToTable("LicenseIssuer");
 
@@ -66,7 +65,7 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<Drivers>(entity =>
             {
                 entity.HasKey(e => e.DriverID)
-                    .HasName("PK__Drivers__F1B1CD242C79588A");
+                    .HasName("PK__Drivers__F1B1CD24F2ACE6AF");
 
                 entity.Property(e => e.DriverID)
                     .HasMaxLength(20)
@@ -111,13 +110,11 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<InfractionInfo>(entity =>
             {
                 entity.HasKey(e => e.IInfoID)
-                    .HasName("PK__Infracti__3E78336596009E87");
+                    .HasName("PK__Infracti__3E783365B2BD9175");
 
                 entity.Property(e => e.IInfoID)
                     .HasMaxLength(20)
                     .IsUnicode(false);
-
-                entity.Property(e => e.IFine).HasColumnType("decimal(10, 0)");
 
                 entity.Property(e => e.IType)
                     .IsRequired()
@@ -128,7 +125,7 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<Infractions>(entity =>
             {
                 entity.HasKey(e => e.InfractionID)
-                    .HasName("PK__Infracti__66F5B69788578E96");
+                    .HasName("PK__Infracti__66F5B69752255F6D");
 
                 entity.Property(e => e.InfractionID)
                     .HasMaxLength(20)
@@ -165,7 +162,7 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<LawEnforcement>(entity =>
             {
                 entity.HasKey(e => e.LawEnID)
-                    .HasName("PK__LawEnfor__1FCFC0663B58287B");
+                    .HasName("PK__LawEnfor__1FCFC0664E20C6D4");
 
                 entity.Property(e => e.LawEnID)
                     .HasMaxLength(20)
@@ -185,7 +182,7 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<Licenses>(entity =>
             {
                 entity.HasKey(e => e.LicenseID)
-                    .HasName("PK__Licenses__72D600A2B14E161E");
+                    .HasName("PK__Licenses__72D600A25EA5C44B");
 
                 entity.Property(e => e.LicenseID)
                     .HasMaxLength(20)
@@ -213,7 +210,7 @@ namespace Werner_DMV_API.Models
             modelBuilder.Entity<Vehicles>(entity =>
             {
                 entity.HasKey(e => e.VehicleID)
-                    .HasName("PK__Vehicles__476B54B269AEB07A");
+                    .HasName("PK__Vehicles__476B54B22228DB88");
 
                 entity.Property(e => e.VehicleID)
                     .HasMaxLength(20)

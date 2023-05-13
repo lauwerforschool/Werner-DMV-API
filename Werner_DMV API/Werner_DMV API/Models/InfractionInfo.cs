@@ -14,7 +14,7 @@ namespace Werner_DMV_API.Models
 
         public string IInfoID { get; set; }
         public string IType { get; set; }
-        public decimal IFine { get; set; }
+        public int IFine { get; set; }
 
         public virtual ICollection<Infractions> Infractions { get; set; }
     }

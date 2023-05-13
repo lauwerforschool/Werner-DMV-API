@@ -71,17 +71,17 @@ PRIMARY KEY (LicenseID)
 
 
 INSERT INTO Licenses(LicenseID, DriverID,VehicleID) VALUES
-('L00001', (select DriverID from Drivers where DriverID = 'D00001'), (Select VehicleId FROM Vehicles where VehicleID = 'V00001')),
-('L00002', (select DriverID from Drivers where DriverID = 'D00002'), (Select VehicleId FROM Vehicles where VehicleID = 'V00002')),
-('L00003',(select DriverID from Drivers where DriverID = 'D00003'), (Select VehicleId FROM Vehicles where VehicleID = 'V00003')),
-('L00004',(select DriverID from Drivers where DriverID = 'D00004'), (Select VehicleId FROM Vehicles where VehicleID = 'V00004')),
-('L00005',(select DriverID from Drivers where DriverID = 'D00005'),(Select VehicleId FROM Vehicles where VehicleID = 'V00005')),
-('L00006', (select DriverID from Drivers where DriverID = 'D00006'), (Select VehicleId FROM Vehicles where VehicleID = 'V00006')),
-('L00007', (select DriverID from Drivers where DriverID = 'D00007'), (Select VehicleId FROM Vehicles where VehicleID = 'V00007')),
-('L00008', (select DriverID from Drivers where DriverID = 'D00008'), (Select VehicleId FROM Vehicles where VehicleID = 'V00008')),
-('L00009', (select DriverID from Drivers where DriverID = 'D00009'), (Select VehicleId FROM Vehicles where VehicleID = 'V00009')),
-('L00010', (select DriverID from Drivers where DriverID = 'D00010'), (Select VehicleId FROM Vehicles where VehicleID = 'V00010')),
-('L00011', (select DriverID from Drivers where DriverID = 'D00010'), (Select VehicleId FROM Vehicles where VehicleID = 'V00001'))
+('L00001', 'D00001', 'V00001'),
+('L00002', 'D00002', 'V00002'),
+('L00003', 'D00003', 'V00003'),
+('L00004', 'D00004', 'V00004'),
+('L00005', 'D00005', 'V00005'),
+('L00006', 'D00006', 'V00006'),
+('L00007', 'D00007', 'V00007'),
+('L00008', 'D00008', 'V00008'),
+('L00009', 'D00009', 'V00009'),
+('L00010', 'D00010', 'V00010'),
+('L00011', 'D00010', 'V00001')
 
 
 ---------------------------------------------------------------
@@ -119,16 +119,16 @@ Primary Key (DMVID, LicenseID)
 
 
 INSERT INTO LicenseIssuer(LicenseID,DMVID) VALUES
-((Select LicenseID FROM Licenses where LicenseID = 'L00001'),(Select DMVID FROM DMV where DMVID = 'DM0001')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00002'),(Select DMVID FROM DMV where DMVID = 'DM0002')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00003'),(Select DMVID FROM DMV where DMVID = 'DM0003')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00004'),(Select DMVID FROM DMV where DMVID = 'DM0004')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00005'),(Select DMVID FROM DMV where DMVID = 'DM0005')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00006'),(Select DMVID FROM DMV where DMVID = 'DM0006')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00007'),(Select DMVID FROM DMV where DMVID = 'DM0007')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00008'),(Select DMVID FROM DMV where DMVID = 'DM0008')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00009'),(Select DMVID FROM DMV where DMVID = 'DM0009')),
-((Select LicenseID FROM Licenses where LicenseID = 'L00010'),(Select DMVID FROM DMV where DMVID = 'DM0010'))
+('L00001', 'DM0001'),
+('L00002', 'DM0002'),
+('L00003', 'DM0003'),
+('L00004', 'DM0004'),
+('L00005', 'DM0005'),
+('L00006', 'DM0006'),
+('L00007', 'DM0007'),
+('L00008', 'DM0008'),
+('L00009', 'DM0009'),
+('L00010', 'DM0010')
 
 ------------------------------------------------------------
 
@@ -166,16 +166,16 @@ INSERT INTO LawEnforcement(LawEnID,LEUserName,LEPassword) VALUES
 Create TABLE InfractionInfo (
 IInfoID varchar(20) NOT NULL,
 IType varchar (50) NOT NULL,
-IFine decimal (10) NOT NULL,
+IFine INT NOT NULL,
 PRIMARY KEY (IInfoID)
 );
 
 INSERT INTO InfractionInfo(IInfoID, IType, IFine) VALUES
-('II0001', 'Speeding', '19.99'),
-('II0002', 'Running A Red Light', '29.99'),
-('II0003', 'Seat Belt Violation', '9.99'),
-('II0004', 'Tail Light out', '19.99'),
-('II0005', 'Driving Without Insurance', '69.99')
+('II0001', 'Speeding', '20'),
+('II0002', 'Running A Red Light', '30'),
+('II0003', 'Seat Belt Violation', '10'),
+('II0004', 'Tail Light out', '20'),
+('II0005', 'Driving Without Insurance', '70')
 
 
 -------------------------------------------------------
@@ -195,17 +195,17 @@ PRIMARY KEY (InfractionID)
 
 
 INSERT INTO Infractions(InfractionID, IInfoID, LicenseID, LawEnID) VALUES
-('I00001', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0001'), (Select LicenseID FROM Licenses where LicenseID = 'L00001'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0001')),
-('I00002', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0002'), (Select LicenseID FROM Licenses where LicenseID = 'L00002'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0002')),
-('I00003', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0003'), (Select LicenseID FROM Licenses where LicenseID = 'L00003'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0003')),
-('I00004', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0004'), (Select LicenseID FROM Licenses where LicenseID = 'L00004'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0004')),
-('I00005', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0005'), (Select LicenseID FROM Licenses where LicenseID = 'L00005'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0005')),
-('I00006', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0001'), (Select LicenseID FROM Licenses where LicenseID = 'L00006'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0006')),
-('I00007', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0001'), (Select LicenseID FROM Licenses where LicenseID = 'L00007'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0007')),
-('I00008', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0002'),(Select LicenseID FROM Licenses where LicenseID = 'L00008'),(Select LawEnID FROM LawEnforcement where LawEnID = 'LE0008')),
-('I00009', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0001'), (Select LicenseID FROM Licenses where LicenseID = 'L00009'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0009')),
-('I00010', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0001'),(Select LicenseID FROM Licenses where LicenseID = 'L00010'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0009')),
-('I00011', (Select IInfoID FROM InfractionInfo where IInfoID = 'II0005'),(Select LicenseID FROM Licenses where LicenseID = 'L00010'), (Select LawEnID FROM LawEnforcement where LawEnID = 'LE0010'))
+('I00001', 'II0001', 'L00001', 'LE0001'),
+('I00002', 'II0002', 'L00002', 'LE0002'),
+('I00003', 'II0003', 'L00003', 'LE0003'),
+('I00004', 'II0004', 'L00004', 'LE0004'),
+('I00005', 'II0005', 'L00005', 'LE0005'),
+('I00006', 'II0001', 'L00006', 'LE0006'),
+('I00007', 'II0001', 'L00007', 'LE0007'),
+('I00008', 'II0002', 'L00008', 'LE0008'),
+('I00009', 'II0001', 'L00009', 'LE0009'),
+('I00010', 'II0001', 'L00010', 'LE0009'),
+('I00011', 'II0005', 'L00010', 'LE0010')
 
 
 
