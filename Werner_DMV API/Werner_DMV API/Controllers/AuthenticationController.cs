@@ -8,10 +8,10 @@ namespace Werner_DMV_API.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private readonly JWTAuthenticationManager jwAuthenticationManager;
-        public AuthenticationController(JWTAuthenticationManager jwAuthenticationManager)
+        private readonly JWTAuthenticationManager jwtAuthenticationManager;
+        public AuthenticationController(JWTAuthenticationManager jwtAuthenticationManager)
         {
-            this.jwAuthenticationManager = jwAuthenticationManager;
+            this.jwtAuthenticationManager = jwtAuthenticationManager;
         }
 
 
@@ -19,7 +19,7 @@ namespace Werner_DMV_API.Controllers
         [HttpPost("Authorize")]
         public IActionResult AuthUser([FromBody] User usr)
         {
-            var token = jwAuthenticationManager.Authenticate(usr.username, usr.password);
+            var token = jwtAuthenticationManager.Authenticate(usr.username, usr.password);
             if (token == null)
             {
                 return Unauthorized();
