@@ -131,7 +131,7 @@ namespace Werner_DMV_API.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.IInfoID)
+               entity.Property(e => e.IInfoID)
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
