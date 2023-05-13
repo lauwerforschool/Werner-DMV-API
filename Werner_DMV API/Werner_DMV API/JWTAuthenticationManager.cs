@@ -14,7 +14,7 @@ namespace Werner_DMV_API
 
         private readonly IDictionary<string, string> users = new Dictionary<string, string>()
         {
-            {"test", "password" }, {"test1", "pwd"}
+            {"test", "password" }, {"admin", "admin"}
         };
         public JWTAuthenticationManager(string key)
         {
