@@ -1,7 +1,7 @@
 ﻿{
    "CodeGenerationMode": 2,
    "ContextClassName": "DMV_APIContext",
-   "ContextNamespace": null,
+   "ContextNamespace": "Models",
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
    "IncludeConnectionString": false,

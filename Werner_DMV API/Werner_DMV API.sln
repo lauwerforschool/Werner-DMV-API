@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Werner_DMV API", "Werner_DMV API\Werner_DMV API.csproj", "{207DC2E8-C93A-46B7-9FB4-EB6B15284ECB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Werner_DMV API", "Werner_DMV API\Werner_DMV API.csproj", "{207DC2E8-C93A-46B7-9FB4-EB6B15284ECB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Werner_DMV APITests", "Werner_DMV APITests\Werner_DMV APITests.csproj", "{726E9DD6-2BE2-4156-924E-E6F82CA0313C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{207DC2E8-C93A-46B7-9FB4-EB6B15284ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{207DC2E8-C93A-46B7-9FB4-EB6B15284ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{207DC2E8-C93A-46B7-9FB4-EB6B15284ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{726E9DD6-2BE2-4156-924E-E6F82CA0313C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{726E9DD6-2BE2-4156-924E-E6F82CA0313C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{726E9DD6-2BE2-4156-924E-E6F82CA0313C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{726E9DD6-2BE2-4156-924E-E6F82CA0313C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

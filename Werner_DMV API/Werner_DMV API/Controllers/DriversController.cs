@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Werner_DMV_API.Models;
@@ -26,10 +21,10 @@ namespace Werner_DMV_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Drivers>>> GetDrivers()
         {
-          if (_context.Drivers == null)
-          {
-              return NotFound();
-          }
+            if (_context.Drivers == null)
+            {
+                return NotFound();
+            }
             return await _context.Drivers.ToListAsync();
         }
 
@@ -38,10 +33,10 @@ namespace Werner_DMV_API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Drivers>> GetDrivers(string id)
         {
-          if (_context.Drivers == null)
-          {
-              return NotFound();
-          }
+            if (_context.Drivers == null)
+            {
+                return NotFound();
+            }
             var drivers = await _context.Drivers.FindAsync(id);
 
             if (drivers == null)
@@ -90,10 +85,10 @@ namespace Werner_DMV_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Drivers>> PostDrivers(Drivers drivers)
         {
-          if (_context.Drivers == null)
-          {
-              return Problem("Entity set 'DMV_APIContext.Drivers'  is null.");
-          }
+            if (_context.Drivers == null)
+            {
+                return Problem("Entity set 'DMV_APIContext.Drivers'  is null.");
+            }
             _context.Drivers.Add(drivers);
             try
             {
