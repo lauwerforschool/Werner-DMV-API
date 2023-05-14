@@ -33,6 +33,7 @@ namespace Werner_DMV_API.Controllers
             return await _context.Drivers.ToListAsync();
         }
 
+        [Authorize]
         // GET: api/Drivers/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Drivers>> GetDrivers(string id)
@@ -51,6 +52,7 @@ namespace Werner_DMV_API.Controllers
             return drivers;
         }
 
+        [Authorize]
         // PUT: api/Drivers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -82,6 +84,7 @@ namespace Werner_DMV_API.Controllers
             return NoContent();
         }
 
+        [Authorize]
         // POST: api/Drivers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -111,6 +114,7 @@ namespace Werner_DMV_API.Controllers
             return CreatedAtAction("GetDrivers", new { id = drivers.DriverID }, drivers);
         }
 
+        [Authorize]
         // DELETE: api/Drivers/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDrivers(string id)

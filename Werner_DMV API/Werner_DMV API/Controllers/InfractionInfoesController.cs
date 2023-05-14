@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,8 @@ namespace Werner_DMV_API.Controllers
             _context = context;
         }
 
+        [Authorize]
+
         // GET: api/InfractionInfoes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<InfractionInfo>>> GetInfractionInfo()
@@ -30,6 +33,8 @@ namespace Werner_DMV_API.Controllers
           }
             return await _context.InfractionInfo.ToListAsync();
         }
+
+        [Authorize]
 
         // GET: api/InfractionInfoes/5
         [HttpGet("{id}")]
@@ -48,6 +53,8 @@ namespace Werner_DMV_API.Controllers
 
             return infractionInfo;
         }
+
+        [Authorize]
 
         // PUT: api/InfractionInfoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -80,6 +87,8 @@ namespace Werner_DMV_API.Controllers
             return NoContent();
         }
 
+        [Authorize]
+
         // POST: api/InfractionInfoes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -109,6 +118,7 @@ namespace Werner_DMV_API.Controllers
             return CreatedAtAction("GetInfractionInfo", new { id = infractionInfo.IInfoID }, infractionInfo);
         }
 
+        [Authorize]
         // DELETE: api/InfractionInfoes/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteInfractionInfo(string id)
