@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Werner_DMV API.props" />
+</Project>
