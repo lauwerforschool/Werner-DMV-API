@@ -38,7 +38,7 @@ namespace Werner_DMV_API
 
                 }),
 
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddHours(1), //automatic logout after 1 hour
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(tokenkey),
                     SecurityAlgorithms.HmacSha256Signature)
